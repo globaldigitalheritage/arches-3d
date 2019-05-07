@@ -19,14 +19,14 @@
     <main>
         {% include 'partials/nav.html' %}
         {% include 'partials/shared/header.html' with header_subtitle="Meet our toolkit" %}
-        {% include 'partials/equipment/scanner_banner.html' %}
+        {% include 'partials/shared/image_banner.html' with image_url="img/equipment/faro_banner.jpg" banner_text="Scanners" %}
         {% include 'partials/equipment/scanners.html' %}
         {% include 'partials/equipment/arm.html' %}
-        {% include 'partials/equipment/drone_banner.html' %}
+        {% include 'partials/shared/image_banner.html' with image_url="img/equipment/drone_banner.jpg" banner_text="Aerial Photogrammetry and Imaging" %}
         {% include 'partials/equipment/drone.html' %}
         {% include 'partials/equipment/balloon.html' %}
         {% include 'partials/equipment/gps.html' %}
-        {% include 'partials/equipment/photography_banner.html' %}
+        {% include 'partials/shared/image_banner.html' with image_url="img/equipment/photography_banner.jpg" banner_text="Photography"%}
         {% include 'partials/equipment/canon.html' %}
         {% include 'partials/equipment/sony.html' %}
         {% include 'partials/equipment/lenses.html' %}
