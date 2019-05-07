@@ -18,7 +18,8 @@
 <body>
   <main>
     {% include 'partials/nav.html' %}
-    {% include 'partials/publications/header.html' %}
+    {% include 'partials/shared/header.html' with header_subtitle="Publications" %}
+
     <section class="container g-pt-100 g-pb-70">
       <h3>Publications and presentations by GDH team members on digital heritage documentation</h3>
       <nav>
@@ -43,6 +44,7 @@
         </div>
       </div>
     </section>
+    
     {% include 'partials/footer.html' %}
     {% include 'partials/link_to_top.html' %}
     {% include 'partials/javascript.html' %}

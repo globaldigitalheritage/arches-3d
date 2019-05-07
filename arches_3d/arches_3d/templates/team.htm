@@ -17,11 +17,11 @@
 <body>
 <main>
     {% include 'partials/nav.html' %}
-    {% include 'partials/team/header.html' %}
+    {% include 'partials/shared/header.html' with header_subtitle="Meet the team" %}
     {% include 'partials/team/team_banner.html' %}
     {% include 'partials/team/sci_board.html' %}
     {% include 'partials/team/board.html' %}
-    {% include 'partials/team/team_header.html' %}
+    {% include 'partials/shared/header.html' with header_title="Meet the team"%}
     {% include 'partials/team/maschner.html' %}
     {% include 'partials/team/victor.html' %}
     {% include 'partials/team/jeff.html' %}
