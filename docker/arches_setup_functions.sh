@@ -97,6 +97,6 @@ fix_static_paths() {
 }
 
 compress_static_files() {
+	echo "Running: python manage.py compress"
 	python manage.py compress
 }
-
