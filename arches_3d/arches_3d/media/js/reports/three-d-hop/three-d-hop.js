@@ -140,6 +140,12 @@ define([
         })
     }
 
+    function getChildTilesByTileId(tiles, tileid){
+        return tiles.filter( function(tile){ 
+            return (tile.parenttile_id == tileid);
+        });
+    }
+
     return ko.components.register('three-d-hop-report', {
         viewModel: function (params) {
             var self = this;
@@ -150,7 +156,8 @@ define([
 
             if (self.report.get('tiles')) {
                 let config = {}
-                self.report.get('tiles').forEach(function (tile) {
+                let tiles = self.report.get('tiles');
+                tiles.forEach(function (tile) {
                     _.each(tile.data, function (val, key) {
 
                         if (val == null) {
@@ -169,6 +176,13 @@ define([
                                     item.status === 'uploaded' &&
                                     (fileExtension == 'ply' || fileExtension == 'nxs')
                                 ) {
+
+                                    var childCollectorTiles = getChildTilesByTileId(tiles, tile.tileid)
+                                    var childTiles = [];
+                                    _.each(childCollectorTiles, function(collectorTile, key){
+                                        childTiles.push(getChildTilesByTileId(tiles, collectorTile.tileid))
+                                    });
+
                                     var mesh = {
                                         url: item.url
                                     };
