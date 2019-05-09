@@ -12,7 +12,7 @@ define([
     'bindings/chosen'
 ], function (_, ko, ReportViewModel, arches, threeDHopSetup) {
 
-    var configurationDictionary =  {
+    var configurationMethodDictionary =  {
 
         '1123258a-226e-11e9-8639-0242ac170002': function(config, val) { addProperty(config, 'trackball.type', getConceptValueAsConstructor(val)); },
 
@@ -185,7 +185,7 @@ define([
                             return;
                         }
 
-                        var addConfigurationMethod = configurationDictionary[key];
+                        var addConfigurationMethod = configurationMethodDictionary[key];
                         if (addConfigurationMethod){
                             addConfigurationMethod(config, val);
                         }
