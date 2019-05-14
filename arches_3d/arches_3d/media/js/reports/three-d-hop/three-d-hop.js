@@ -12,51 +12,65 @@ define([
     'bindings/chosen'
 ], function (_, ko, ReportViewModel, arches, threeDHopSetup) {
 
-    var configurationMethodDictionary =  {
+    var configurationMethodDictionary = {
 
-        '1123258a-226e-11e9-8639-0242ac170002': function(config, val) { addProperty(config, 'trackball.type', getConceptValueAsConstructor(val)); },
+        '1123258a-226e-11e9-8639-0242ac170002': function (config, val) { addProperty(config, 'trackball.type', getConceptValueAsConstructor(val)); },
 
-        '4fef73c2-226e-11e9-9e1e-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.startPhi', val); },
-        '77472ef6-226e-11e9-8bd2-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.startTheta', val); },
-        '84a2c6fa-226e-11e9-b4cd-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.startDistance', val); },
-        '92d84f1a-226e-11e9-8639-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.startPanX', val); },
-        'a4030654-226e-11e9-b29f-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.startPanY', val); },
-        'b772a67c-226e-11e9-ab9d-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.startPanZ', val); },
-        '66227432-379f-11e9-aa45-0242ac1d0002': function(config, val) { addProperty(config, 'trackball.trackOptions.startAngleX', val); },
-        'a6e8ab62-379f-11e9-ab15-0242ac1d0002': function(config, val) { addProperty(config, 'trackball.trackOptions.startAngleY', val); },
-        '43195b86-26e7-11e9-b29f-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxDist', val, 0); },
-        '67f05c8e-26e7-11e9-8639-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxDist', val, 0); },
-        '97b84d6e-26e7-11e9-ab9d-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxPhi', val, 0); },
-        'b18eb494-26e7-11e9-b4cd-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxPhi', val, 1); },
-        '1c873974-26e8-11e9-8bd2-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxTheta', val, 0); },
-        '2d7ebcb6-26e8-11e9-8639-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxTheta', val, 1); },
-        '49977ba4-26e8-11e9-ad1e-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxPanX', val, 0); },
-        '5ca61af2-26e8-11e9-8639-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxPanX', val, 1); },
-        '743bc66c-26ed-11e9-8639-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxPanY', val, 0); },
-        '8b10fdf8-26ed-11e9-8c52-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxPanY', val, 1); },
-        'b1d2d47a-26ed-11e9-8c52-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxPanZ', val, 0); },
-        'c00d79f0-26ed-11e9-b29f-0242ac170002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxPanZ', val, 1); },
-        'e8e22836-379f-11e9-bd96-0242ac1d0002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxAngleX', val, 0); },
-        'f7f8fd72-379f-11e9-bdc8-0242ac1d0002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxAngleX', val, 1); },
-        '24c2900c-37a0-11e9-a987-0242ac1d0002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxAngleY', val, 0); },
-        '37610f5e-37a0-11e9-bdc8-0242ac1d0002': function(config, val) { addProperty(config, 'trackball.trackOptions.minMaxAngleY', val, 1); },
+        '4fef73c2-226e-11e9-9e1e-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.startPhi', val); },
+        '77472ef6-226e-11e9-8bd2-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.startTheta', val); },
+        '84a2c6fa-226e-11e9-b4cd-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.startDistance', val); },
+        '92d84f1a-226e-11e9-8639-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.startPanX', val); },
+        'a4030654-226e-11e9-b29f-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.startPanY', val); },
+        'b772a67c-226e-11e9-ab9d-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.startPanZ', val); },
+        '66227432-379f-11e9-aa45-0242ac1d0002': function (config, val) { addProperty(config, 'trackball.trackOptions.startAngleX', val); },
+        'a6e8ab62-379f-11e9-ab15-0242ac1d0002': function (config, val) { addProperty(config, 'trackball.trackOptions.startAngleY', val); },
+        '43195b86-26e7-11e9-b29f-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxDist', val, 0); },
+        '67f05c8e-26e7-11e9-8639-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxDist', val, 0); },
+        '97b84d6e-26e7-11e9-ab9d-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxPhi', val, 0); },
+        'b18eb494-26e7-11e9-b4cd-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxPhi', val, 1); },
+        '1c873974-26e8-11e9-8bd2-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxTheta', val, 0); },
+        '2d7ebcb6-26e8-11e9-8639-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxTheta', val, 1); },
+        '49977ba4-26e8-11e9-ad1e-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxPanX', val, 0); },
+        '5ca61af2-26e8-11e9-8639-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxPanX', val, 1); },
+        '743bc66c-26ed-11e9-8639-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxPanY', val, 0); },
+        '8b10fdf8-26ed-11e9-8c52-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxPanY', val, 1); },
+        'b1d2d47a-26ed-11e9-8c52-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxPanZ', val, 0); },
+        'c00d79f0-26ed-11e9-b29f-0242ac170002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxPanZ', val, 1); },
+        'e8e22836-379f-11e9-bd96-0242ac1d0002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxAngleX', val, 0); },
+        'f7f8fd72-379f-11e9-bdc8-0242ac1d0002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxAngleX', val, 1); },
+        '24c2900c-37a0-11e9-a987-0242ac1d0002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxAngleY', val, 0); },
+        '37610f5e-37a0-11e9-bdc8-0242ac1d0002': function (config, val) { addProperty(config, 'trackball.trackOptions.minMaxAngleY', val, 1); },
 
-        'af717052-2273-11e9-b4cd-0242ac170002': function(config, val) { addProperty(config, 'trackball.space.centerMode', getConceptValue(val)); },
-        '4badaf1c-2274-11e9-ad1e-0242ac170002': function(config, val) { addProperty(config, 'trackball.space.explicitCenter', val, 0); },
-        '41e3ad9c-2274-11e9-ad1e-0242ac170002': function(config, val) { addProperty(config, 'trackball.space.explicitCenter', val, 1); },
-        'cc736a92-2274-11e9-b29f-0242ac170002': function(config, val) { addProperty(config, 'trackball.space.explicitCenter', val, 2); },
-        
-        'd3843830-2273-11e9-b7c2-0242ac170002': function(config, val) { addProperty(config, 'trackball.space.radiusMode', getConceptValue(val)); },
-        '1553379c-2275-11e9-9e1e-0242ac170002': function(config, val) { addProperty(config, 'trackball.space.explicitRadius', val, 0); },
-        '8954efdc-2275-11e9-b7c2-0242ac170002': function(config, val) { addProperty(config, 'trackball.space.explicitRadius', val, 1); },
-        '97d7004a-2275-11e9-8bd2-0242ac170002': function(config, val) { addProperty(config, 'trackball.space.explicitRadius', val, 2); },
+        'af717052-2273-11e9-b4cd-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.centerMode', getConceptValue(val)); },
+        '4badaf1c-2274-11e9-ad1e-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.explicitCenter', val, 0); },
+        '41e3ad9c-2274-11e9-ad1e-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.explicitCenter', val, 1); },
+        'cc736a92-2274-11e9-b29f-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.explicitCenter', val, 2); },
 
-        '0b40d042-2276-11e9-8bd2-0242ac170002': function(config, val) { addProperty(config, 'trackball.space.cameraType', getConceptValue(val)); },
-        '758debf6-2276-11e9-9e1e-0242ac170002': function(config, val) { addProperty(config, 'trackball.space.cameraFOV', val); },
-        'cb30e982-2276-11e9-ad1e-0242ac170002': function(config, val) { addProperty(config, 'trackball.space.cameraNearFar', val, 0); },
-        'da582a92-2276-11e9-b4cd-0242ac170002': function(config, val) { addProperty(config, 'trackball.space.cameraNearFar', val, 1); },
+        'd3843830-2273-11e9-b7c2-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.radiusMode', getConceptValue(val)); },
+        '1553379c-2275-11e9-9e1e-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.explicitRadius', val, 0); },
+        '8954efdc-2275-11e9-b7c2-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.explicitRadius', val, 1); },
+        '97d7004a-2275-11e9-8bd2-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.explicitRadius', val, 2); },
 
-        'd316cfe2-27c9-11e9-8639-0242ac170002': function(config, val) { addProperty(config, 'space.sceneLighting', val); },
+        '0b40d042-2276-11e9-8bd2-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.cameraType', getConceptValue(val)); },
+        '758debf6-2276-11e9-9e1e-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.cameraFOV', val); },
+        'cb30e982-2276-11e9-ad1e-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.cameraNearFar', val, 0); },
+        'da582a92-2276-11e9-b4cd-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.cameraNearFar', val, 1); },
+
+        'd316cfe2-27c9-11e9-8639-0242ac170002': function (config, val) { addProperty(config, 'space.sceneLighting', val); },
+    };
+
+    var threeDModelConfigurationMethodDictionary = {
+        '47472be0-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.translation', val, 0); },
+        '4747314e-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.translation', val, 1); },
+        '474732d4-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.translation', val, 2); },
+
+        '474735d6-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.rotation', val, 0); },
+        '47473752-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.rotation', val, 1); },
+        '474732d4-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.rotation', val, 2); },
+
+        '4747345a-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.scale', val, 0); },
+        '474738d8-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.scale', val, 1); },
+        '47472e2e-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.scale', val, 2); },
     };
 
     function getConceptValue(valueid) {
@@ -75,7 +89,7 @@ define([
         return val;
     }
 
-    function getConceptValueAsConstructor(value){
+    function getConceptValueAsConstructor(value) {
         var conceptValue = getConceptValue(value);
         return window[conceptValue];
     }
@@ -140,10 +154,45 @@ define([
         })
     }
 
-    function getChildTilesByTileId(tiles, tileid){
-        return tiles.filter( function(tile){ 
+    function addValueToConfiguration(configurationMethodDictionary, configObject, key, value) {
+        var addConfigurationMethod = configurationMethodDictionary[key];
+
+        if (addConfigurationMethod) {
+            addConfigurationMethod(configObject, value);
+        }
+    }
+
+    function buildNestedConfigurationObject(configObject, tiles, parentTileId) {
+        if (parentTileId == undefined) {
+            return;
+        }
+
+        var childTiles = getChildTilesByTileId(tiles, parentTileId);
+
+        childTiles.forEach(function (tile) {
+            _.each(tile.data, function (val, key) {
+                addValueToConfiguration(threeDModelConfigurationMethodDictionary, configObject, key, val);
+            });
+
+            buildNestedConfigurationObject(configObject, tiles, tile.tileid);
+        });
+    }
+
+    function getChildTilesByTileId(tiles, tileid) {
+        return tiles.filter(function (tile) {
             return (tile.parenttile_id == tileid);
         });
+    }
+
+    function addMeshProperty(configObject, item) {
+        var mesh = {
+            url: item.url
+        };
+
+        var meshName = removeDotsFromString(item.name);
+        addProperty(configObject, `meshes.${meshName}`, mesh);
+
+        return meshName;
     }
 
     return ko.components.register('three-d-hop-report', {
@@ -155,7 +204,7 @@ define([
             self.threeDHopFileCount = ko.observable(0);
 
             if (self.report.get('tiles')) {
-                let config = {}
+                let configObject = {}
                 let tiles = self.report.get('tiles');
                 tiles.forEach(function (tile) {
                     _.each(tile.data, function (val, key) {
@@ -168,7 +217,7 @@ define([
                         if (Array.isArray(val)) {
                             val.forEach(function (item) {
 
-                                if (item.name){
+                                if (item.name) {
                                     var fileExtension = getExtension(item.name);
                                 }
 
@@ -177,44 +226,34 @@ define([
                                     (fileExtension == 'ply' || fileExtension == 'nxs')
                                 ) {
 
-                                    var childCollectorTiles = getChildTilesByTileId(tiles, tile.tileid)
-                                    var childTiles = [];
-                                    _.each(childCollectorTiles, function(collectorTile, key){
-                                        childTiles.push(getChildTilesByTileId(tiles, collectorTile.tileid))
-                                    });
-
-                                    var mesh = {
-                                        url: item.url
-                                    };
-                                    var meshName = removeDotsFromString(item.name);
-                                    addProperty(config, `meshes.${meshName}`, mesh)
+                                    var meshName = addMeshProperty(configObject, item);
 
                                     var instance = {
                                         mesh: meshName
-                                    };
+                                    }
+
+                                    buildNestedConfigurationObject(instance, tiles, tile.tileid);
+
                                     var instanceName = removeDotsFromString(item.name);
-                                    addProperty(config, `modelInstances.${instanceName}`, instance)
+                                    addProperty(configObject, `modelInstances.${instanceName}`, instance)
                                 }
                             });
                             return;
                         }
 
-                        var addConfigurationMethod = configurationMethodDictionary[key];
-                        if (addConfigurationMethod){
-                            addConfigurationMethod(config, val);
-                        }
+                        addValueToConfiguration(configurationMethodDictionary, configObject, key, val)
 
                     }, self);
                 }, self);
 
 
-                cleanEmptyProperties(config);
+                cleanEmptyProperties(configObject);
 
-                if (config.meshes) {
-                    var threeDHopFileCount = Object.keys(config.meshes).length;
+                if (configObject.meshes) {
+                    var threeDHopFileCount = Object.keys(configObject.meshes).length;
                     if (threeDHopFileCount > 0) {
                         self.threeDHopFileCount(threeDHopFileCount);
-                        threeDHopSetup.setup3DHOP(config);
+                        threeDHopSetup.setup3DHOP(configObject);
                     }
                 }
             }
