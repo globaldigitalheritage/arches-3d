@@ -57,20 +57,18 @@ define([
         'da582a92-2276-11e9-b4cd-0242ac170002': function (config, val) { addProperty(config, 'trackball.space.cameraNearFar', val, 1); },
 
         'd316cfe2-27c9-11e9-8639-0242ac170002': function (config, val) { addProperty(config, 'space.sceneLighting', val); },
-    };
 
-    var threeDModelConfigurationMethodDictionary = {
-        '47472be0-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.translation', val, 0); },
-        '4747314e-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.translation', val, 1); },
-        '474732d4-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.translation', val, 2); },
+        'dd705904-77ec-11e9-85bb-0242c0a84002': function (config, val) { addProperty(config, 'space.transform.translation', val, 0); },
+        'dd706228-77ec-11e9-85bb-0242c0a84002': function (config, val) { addProperty(config, 'space.transform.translation', val, 1); },
+        'dd70605c-77ec-11e9-85bb-0242c0a84002': function (config, val) { addProperty(config, 'space.transform.translation', val, 2); },
 
-        '474735d6-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.rotation', val, 0); },
-        '47473752-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.rotation', val, 1); },
-        '474732d4-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.rotation', val, 2); },
+        'dd705468-77ec-11e9-85bb-0242c0a84002': function (config, val) { addProperty(config, 'space.transform.rotation', val, 0); },
+        'dd705ae4-77ec-11e9-85bb-0242c0a84002': function (config, val) { addProperty(config, 'space.transform.rotation', val, 1); },
+        'dd7055d0-77ec-11e9-85bb-0242c0a84002': function (config, val) { addProperty(config, 'space.transform.rotation', val, 2); },
 
-        '4747345a-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.scale', val, 0); },
-        '474738d8-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.scale', val, 1); },
-        '47472e2e-727b-11e9-8de0-0242ac170004': function (config, val) { addProperty(config, 'transform.scale', val, 2); },
+        'dd70515c-77ec-11e9-85bb-0242c0a84002': function (config, val) { addProperty(config, 'space.transform.scale', val, 0); },
+        'dd7052f6-77ec-11e9-85bb-0242c0a84002': function (config, val) { addProperty(config, 'space.transform.scale', val, 1); },
+        'dd705ca6-77ec-11e9-85bb-0242c0a84002': function (config, val) { addProperty(config, 'space.transform.scale', val, 2); },
     };
 
     function getConceptValue(valueid) {
