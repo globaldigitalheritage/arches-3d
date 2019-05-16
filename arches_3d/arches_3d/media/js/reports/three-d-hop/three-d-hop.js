@@ -160,28 +160,6 @@ define([
         }
     }
 
-    function buildNestedConfigurationObject(configObject, tiles, parentTileId) {
-        if (parentTileId == undefined) {
-            return;
-        }
-
-        var childTiles = getChildTilesByTileId(tiles, parentTileId);
-
-        childTiles.forEach(function (tile) {
-            _.each(tile.data, function (val, key) {
-                addValueToConfiguration(threeDModelConfigurationMethodDictionary, configObject, key, val);
-            });
-
-            buildNestedConfigurationObject(configObject, tiles, tile.tileid);
-        });
-    }
-
-    function getChildTilesByTileId(tiles, tileid) {
-        return tiles.filter(function (tile) {
-            return (tile.parenttile_id == tileid);
-        });
-    }
-
     function addMeshProperty(configObject, item) {
         var mesh = {
             url: item.url
@@ -229,8 +207,6 @@ define([
                                     var instance = {
                                         mesh: meshName
                                     }
-
-                                    buildNestedConfigurationObject(instance, tiles, tile.tileid);
 
                                     var instanceName = removeDotsFromString(item.name);
                                     addProperty(configObject, `modelInstances.${instanceName}`, instance)
