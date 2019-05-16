@@ -171,6 +171,14 @@ define([
         return meshName;
     }
 
+    function addInstanceProperty(configObject, meshName){
+        var instance = {
+            mesh: meshName
+        }
+
+        addProperty(configObject, `modelInstances.${meshName}`, instance)
+    }
+
     return ko.components.register('three-d-hop-report', {
         viewModel: function (params) {
             var self = this;
@@ -203,13 +211,7 @@ define([
                                 ) {
 
                                     var meshName = addMeshProperty(configObject, item);
-
-                                    var instance = {
-                                        mesh: meshName
-                                    }
-
-                                    var instanceName = removeDotsFromString(item.name);
-                                    addProperty(configObject, `modelInstances.${instanceName}`, instance)
+                                    addInstanceProperty(configObject, meshName);
                                 }
                             });
                             return;
