@@ -86,7 +86,7 @@
                     "helpenabled": false, 
                     "helptext": null, 
                     "helptitle": null, 
-                    "instructions": null, 
+                    "instructions": "See http://3dhop.net/examples.php?id=4 for more information.", 
                     "is_editable": true, 
                     "name": "Scale", 
                     "nodegroup_id": "dd7034d8-77ec-11e9-85bb-0242c0a84002", 
@@ -122,7 +122,7 @@
                     "helpenabled": false, 
                     "helptext": null, 
                     "helptitle": null, 
-                    "instructions": null, 
+                    "instructions": "See http://3dhop.net/examples.php?id=4 for more information.", 
                     "is_editable": true, 
                     "name": "Translation", 
                     "nodegroup_id": "dd70481a-77ec-11e9-85bb-0242c0a84002", 
@@ -176,7 +176,7 @@
                     "helpenabled": false, 
                     "helptext": null, 
                     "helptitle": null, 
-                    "instructions": null, 
+                    "instructions": "See http://3dhop.net/examples.php?id=4 for more information.", 
                     "is_editable": true, 
                     "name": "Rotation", 
                     "nodegroup_id": "dd704cd4-77ec-11e9-85bb-0242c0a84002", 
@@ -1174,7 +1174,7 @@
                         "label": "Scale Factor X", 
                         "max": "", 
                         "min": "", 
-                        "placeholder": "Enter number", 
+                        "placeholder": "Enter number or leave empty for default value", 
                         "precision": "", 
                         "prefix": "", 
                         "step": "", 
@@ -1195,7 +1195,7 @@
                         "label": "Scale Factor Y", 
                         "max": "", 
                         "min": "", 
-                        "placeholder": "Enter number", 
+                        "placeholder": "Enter number or leave empty for default value", 
                         "precision": "", 
                         "prefix": "", 
                         "step": "", 
@@ -1216,7 +1216,7 @@
                         "label": "Rotation X", 
                         "max": "", 
                         "min": "", 
-                        "placeholder": "Enter Euler angle or leave empty for default value", 
+                        "placeholder": "Enter number or leave empty for default value", 
                         "precision": "", 
                         "prefix": "", 
                         "step": "", 
@@ -1237,7 +1237,7 @@
                         "label": "Rotation Z", 
                         "max": "", 
                         "min": "", 
-                        "placeholder": "Enter Euler angle or leave empty for default value", 
+                        "placeholder": "Enter number or leave empty for default value", 
                         "precision": "", 
                         "prefix": "", 
                         "step": "", 
@@ -1279,7 +1279,7 @@
                         "label": "Rotation Y", 
                         "max": "", 
                         "min": "", 
-                        "placeholder": "Enter Euler angle or leave empty for default value", 
+                        "placeholder": "Enter number or leave empty for default value", 
                         "precision": "", 
                         "prefix": "", 
                         "step": "", 
@@ -1300,7 +1300,7 @@
                         "label": "Scale Factor Z", 
                         "max": "", 
                         "min": "", 
-                        "placeholder": "Enter number", 
+                        "placeholder": "Enter number or leave empty for default value", 
                         "precision": "", 
                         "prefix": "", 
                         "step": "", 
@@ -2377,7 +2377,7 @@
                     "nodeid": "dd705ae4-77ec-11e9-85bb-0242c0a84002", 
                     "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E60_Number", 
                     "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P3_has_note", 
-                    "sortorder": 0
+                    "sortorder": 2
                 }, 
                 {
                     "config": null, 
@@ -2669,7 +2669,7 @@
                     "nodeid": "dd705ca6-77ec-11e9-85bb-0242c0a84002", 
                     "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E60_Number", 
                     "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P3_has_note", 
-                    "sortorder": 0
+                    "sortorder": 2
                 }, 
                 {
                     "config": null, 
@@ -2829,7 +2829,7 @@
                     "nodeid": "dd7055d0-77ec-11e9-85bb-0242c0a84002", 
                     "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E60_Number", 
                     "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P3_has_note", 
-                    "sortorder": 0
+                    "sortorder": 1
                 }, 
                 {
                     "config": null, 
@@ -2944,7 +2944,7 @@
                     "nodeid": "dd704cd4-77ec-11e9-85bb-0242c0a84002", 
                     "ontologyclass": "http://www.ics.forth.gr/isl/CRMgeo/SP3_Reference_Space", 
                     "parentproperty": "http://www.ics.forth.gr/isl/CRMdig/L54_is_same-as", 
-                    "sortorder": 0
+                    "sortorder": 1
                 }, 
                 {
                     "config": null, 
@@ -3008,7 +3008,7 @@
                     "nodeid": "dd7052f6-77ec-11e9-85bb-0242c0a84002", 
                     "ontologyclass": "http://www.cidoc-crm.org/cidoc-crm/E60_Number", 
                     "parentproperty": "http://www.cidoc-crm.org/cidoc-crm/P3_has_note", 
-                    "sortorder": 0
+                    "sortorder": 1
                 }, 
                 {
                     "config": null, 
@@ -3120,7 +3120,7 @@
                     "nodeid": "dd7034d8-77ec-11e9-85bb-0242c0a84002", 
                     "ontologyclass": "http://www.ics.forth.gr/isl/CRMgeo/SP3_Reference_Space", 
                     "parentproperty": "http://www.ics.forth.gr/isl/CRMdig/L54_is_same-as", 
-                    "sortorder": 0
+                    "sortorder": 2
                 }, 
                 {
                     "config": null, 
