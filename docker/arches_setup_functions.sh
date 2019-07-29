@@ -34,8 +34,11 @@ init_custom_db() {
 	if ! collections_exist; then
 		import_collections
 	else
-		echo "collections already exist in the database. Skipping..."
+		echo "Collections already exist in the database. Skipping..."
 	fi
+
+	# Register widgets
+	register_widgets
 }
 
 graphs_exist() {
@@ -99,4 +102,27 @@ fix_static_paths() {
 compress_static_files() {
 	echo "Running: python manage.py compress"
 	python manage.py compress
+}
+
+register_widgets() {
+	register_uri_widget
+}
+
+register_uri_widget() {
+	if ! widget_exist "uri-widget"; then
+		echo "Running: python manage.py widget register --source arches_3d/widgets/uri.json"
+		python manage.py widget register --source arches_3d/widgets/uri.json
+	else
+		echo "Widget 'uri-widget' already exists, skipping..."
+	fi
+}
+
+widget_exist() {
+	local widget_name="$1"
+	row_count=$(psql --host=${PGHOST} --port=${PGPORT} --user=${PGUSERNAME} --dbname=${PGDBNAME} -Atc "SELECT COUNT(*) FROM public.widgets WHERE name = '${widget_name}'")
+	if [[ ${row_count} -eq 1 ]]; then
+		return 0
+	else 
+		return 1
+	fi
 }
