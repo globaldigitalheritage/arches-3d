@@ -160,6 +160,24 @@
                     "widget_id": "10000000-0000-0000-0000-000000000019"
                 }, 
                 {
+                    "card_id": "f1b41b54-af13-11e9-8888-0242c0a86002", 
+                    "config": {
+                        "acceptedFiles": ".zip", 
+                        "defaultValue": "", 
+                        "label": "3D Data", 
+                        "maxFilesize": "100000", 
+                        "maxLength": null, 
+                        "placeholder": "Enter share link. Note: make sure this is read-only", 
+                        "width": "100%"
+                    }, 
+                    "id": "f1b4374c-af13-11e9-8888-0242c0a86002", 
+                    "label": "3D Data", 
+                    "node_id": "f1b4315c-af13-11e9-8888-0242c0a86002", 
+                    "sortorder": 2, 
+                    "visible": true, 
+                    "widget_id": "1d5c30cf-ca82-4b6e-b93a-82302112dc2d"
+                }, 
+                {
                     "card_id": "f1b424d2-af13-11e9-8888-0242c0a86002", 
                     "config": {
                         "acceptedFiles": "", 
@@ -172,27 +190,9 @@
                     "sortorder": 0, 
                     "visible": true, 
                     "widget_id": "10000000-0000-0000-0000-000000000019"
-                }, 
-                {
-                    "card_id": "f1b41b54-af13-11e9-8888-0242c0a86002", 
-                    "config": {
-                        "acceptedFiles": ".zip", 
-                        "defaultValue": "", 
-                        "label": "3D Data URL", 
-                        "maxFilesize": "100000", 
-                        "maxLength": null, 
-                        "placeholder": "Enter share link. Note: make sure this is read-only", 
-                        "width": "100%"
-                    }, 
-                    "id": "f1b4374c-af13-11e9-8888-0242c0a86002", 
-                    "label": "3D Data URL", 
-                    "node_id": "f1b4315c-af13-11e9-8888-0242c0a86002", 
-                    "sortorder": 2, 
-                    "visible": true, 
-                    "widget_id": "10000000-0000-0000-0000-000000000001"
                 }
             ], 
-            "color": "rgba(56,98,204,0.94)", 
+            "color": "rgba(56,135,126,0.94)", 
             "config": {
                 "nodes": [
                     "f1b43332-af13-11e9-8888-0242c0a86002"
@@ -316,7 +316,7 @@
                 }
             ], 
             "graphid": "f1b41082-af13-11e9-8888-0242c0a86002", 
-            "iconclass": "fa fa-cubes", 
+            "iconclass": "fa fa-align-center", 
             "is_editable": true, 
             "isactive": true, 
             "isresource": true, 
@@ -525,7 +525,26 @@
                 }
             ], 
             "ontology_id": "e6e8db47-2ccf-11e6-927e-b8f6b115d7dd", 
-            "relatable_resource_model_ids": [], 
+            "relatable_resource_model_ids": [
+                "f1b41082-af13-11e9-8888-0242c0a86002", 
+                "98cd6ca6-1649-11e9-96d3-0242ac140004", 
+                "78007b18-1661-11e9-bf95-0242ac140004", 
+                "9b591814-c0f2-11e8-9c8c-0242ac120004", 
+                "36bcaff4-b82f-11e8-8598-0242ac120004", 
+                "3854b1f2-14a9-11e7-b06e-0242ac150005", 
+                "fad0563b-b8f8-11e6-84a5-026d961c88e6", 
+                "99417385-b8fa-11e6-84a5-026d961c88e6", 
+                "3caf329f-b8f7-11e6-84a5-026d961c88e6", 
+                "ccbd1537-ac5e-11e6-84a5-026d961c88e6", 
+                "64ae35a0-2b53-11e7-9130-0242ac140004", 
+                "ddf1c942-d145-11e8-897e-0242ac1a0004", 
+                "f5624ce7-b66c-11e6-84a5-026d961c88e6", 
+                "601c830e-d780-11e8-918f-0242ac120004", 
+                "f1b41082-af13-11e9-8888-0242c0a86002", 
+                "2995daea-d6d3-11e8-9eb1-0242ac150004", 
+                "32a83794-f60f-11e8-8d50-0242ac120004", 
+                "6ba5a68c-f58b-11e8-a354-0242ac120004"
+            ], 
             "resource_2_resource_constraints": [], 
             "root": {
                 "config": null, 
