@@ -19,7 +19,9 @@
 <dt data-bind="text: label"></dt>
 <dd>
   <div style='margin-bottom:2px'>
-    <a data-bind="attr: { href: value, target: '_blank', title: 'Download data' }">Download data</a>
+    <button class="btn btn-primary">
+      <a data-bind="attr: { href: value, target: '_blank', title: 'Download data' }" style="color: #fff; border-radius: 10px;">Download data</a>
+    </button>
   </div>
 </dd>
 {% endblock report %}
