@@ -4,4 +4,4 @@ pathos==0.2.2.1
 chardet==3.0.4
 django-debug-toolbar==1.11
 # https://github.com/veuncent/django-static-compress/archive/1.0.0.0.zip
-django_compressor==2.2
+django_compressor==2.3
