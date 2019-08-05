@@ -15,4 +15,6 @@ if [[ -z ${GUNICORN_WORKERS} ]]; then
     echo "Setting gunicorn workers to: ${GUNICORN_WORKERS}"
 fi
 
-compress_static_files
+if [[ ! "${DJANGO_DEBUG}" == "True" ]]; then
+    compress_static_files
+fi
