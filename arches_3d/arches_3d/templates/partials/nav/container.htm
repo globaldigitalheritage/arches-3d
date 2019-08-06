@@ -1,13 +1,16 @@
 {% load static %}
-{% load staticfiles %}
 {% load template_tags %}
 {% load i18n %}
-<!--=== Header ===-->
-<!-- Header -->
-<header id="js-header" class="u-header u-header--static">
-  <div class="u-header__section u-header__section--light g-bg-white g-transition-0_3 g-py-10">
-    <nav class="js-mega-menu navbar navbar-expand-lg hs-menu-initialized hs-menu-horizontal">
+      
       <div class="container">
+
+        <!-- Logo -->
+        <a href="/" class="navbar-brand d-flex">
+          <img class="navbar-logo" src="{% static 'img/logos/gdh-logo.png' %}">
+          <p class='nav-link'>Global Digital Heritage</p>
+        </a>
+        <!-- End Logo -->
+
         <!-- Responsive Toggle Button -->
         <button class="navbar-toggler navbar-toggler-right btn g-line-height-1 g-brd-none g-pa-0 g-pos-abs g-top-minus-3 g-right-0"
           type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navBar" data-toggle="collapse"
@@ -20,20 +23,9 @@
         </button>
         <!-- End Responsive Toggle Button -->
 
-        <!-- Logo -->
-        <a href="/" class="navbar-brand d-flex">
-          <img src="{% static 'img/logos/gdh-logo.png' %}" width="50px" height="50px">
-          <p class='nav-link'>Global Digital Heritage</p>
-        </a>
-        <!-- End Logo -->
-
         <!-- Navigation -->
         <div class="collapse navbar-collapse align-items-center flex-sm-row g-pt-10 g-pt-5--lg g-mr-40--lg" id="navBar">
           <ul class="navbar-nav text-uppercase g-pos-rel g-font-weight-600 ml-auto">
-
-
-
-
 
             <!-- Intro -->
             <li class="nav-item  g-mx-10--lg g-mx-15--xl">
@@ -127,7 +119,3 @@
 
 
       </div>
-    </nav>
-  </div>
-</header>
-<!-- End Header -->

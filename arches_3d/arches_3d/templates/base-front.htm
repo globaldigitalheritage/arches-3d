@@ -1,6 +1,8 @@
 {% load static %}
 {% load template_tags %}
 {% load i18n %}
+{% load compress %}
+
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -12,13 +14,18 @@
     <title>{{app_title}}</title>
     {% include 'partials/meta.html' %}
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
-    {% include 'partials/css.html' %}
+        
+    {% compress css %}
+        {% include 'partials/css.html' %}
+        <link rel="stylesheet" href="{% static 'css/nav.css' %}">
+    {% endcompress %}
+
     {% block css %}
     {% endblock %}
 </head>
 <body>
 <main>
-    {% include 'partials/nav.html' %}
+    {% include 'partials/nav/nav-main.htm' %}
     {% block main_content %}
     {% endblock main_content %}
     {% include 'partials/footer.html' %}
