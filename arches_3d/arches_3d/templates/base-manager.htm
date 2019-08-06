@@ -34,7 +34,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
             <header id="navbar">
 
                 <div id="navbar-container" class="boxed" style="background-color: inherit; padding-right: 0px;">
-                    <div class="navbar-header" style="float: none;">
+                    <div class="navbar-header">
                         <a href="#" class="navbar-brand" data-bind="click: function () { navExpanded(!navExpanded()) }">
                             <img src="{{ STATIC_URL }}img/arches_logo_light.png" alt="Nifty Logo" class="brand-icon">
                             <div class="brand-title">
@@ -49,7 +49,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
             <div class="boxed">
 
-                <div style="position: relative; left: none; right: none; margin-left: 50px; margin-left: 50px;">
+                <div class="nav-integrated">
                     {% include 'partials/nav/nav-integrated.htm' %}
                 </div>
 

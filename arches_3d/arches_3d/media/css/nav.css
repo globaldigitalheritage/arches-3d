@@ -2,6 +2,14 @@
     float: none;
 }
 
+.nav-integrated {
+    position: relative;
+    left: none;
+    right: none;
+    margin-left: 50px;
+    margin-left: 50px;
+}
+
 .navbar {
     padding: 0px !important;
     margin-bottom: 0px;
@@ -70,16 +78,13 @@
     .nav-main-container {
         padding: 10px;
     }
-    
     .navbar {
         margin-top: 0px;
         padding: 0px;
     }
-
     .nav-item {
         padding: 5px;
     }
-
     #content-container {
         padding-top: 0px !important;
     }
