@@ -99,3 +99,50 @@
         padding-top: 0px !important;
     }
 }
+
+/* Integrated nav bar in Arches */
+@media (max-width: 992px) {
+    .nav-integrated-container .navbar-header {
+        float: none;
+    }
+    
+    .nav-integrated-container .navbar-left,.navbar-right {
+        float: none !important;
+    }
+
+    .nav-integrated-container .navbar-toggle {
+        display: block;
+    }
+
+    .nav-integrated-container .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+
+    .nav-integrated-container .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+
+    .nav-integrated-container .navbar-collapse.collapse {
+        display: none!important;
+    }
+
+    .nav-integrated-container .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    
+    .nav-integrated-container .navbar-nav>li {
+        float: none;
+    }
+
+    .nav-integrated-container .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .nav-integrated-container .collapse.in{
+        display:block !important;
+    }
+}
