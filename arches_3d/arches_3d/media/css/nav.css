@@ -20,6 +20,7 @@
 }
 
 .navbar-brand {
+    width: 240px;
     float: left;
     height: auto;
     z-index: unset;
