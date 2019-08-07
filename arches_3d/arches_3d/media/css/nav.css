@@ -77,24 +77,28 @@
     border-bottom: 1px solid #ddd;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 993px) {
+
     .nav-container .container {
         overflow: auto;
         display: flex;
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
     .nav-main-container {
         padding: 10px;
     }
+    
     .navbar {
         margin-top: 0px;
         padding: 0px;
     }
+
     .nav-item {
         padding: 5px;
     }
+
     #content-container {
         padding-top: 0px !important;
     }
