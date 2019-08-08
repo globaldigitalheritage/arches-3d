@@ -1,22 +1,7 @@
-{% load static %}
-{% load template_tags %}
-{% load i18n %}
-<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-<!--<![endif]-->
+{% extends "base-front.htm" %}
 
-<head>
-    <title>{{app_title}}</title>
-    {% include 'partials/meta.html' %}
-    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
-    {% include 'partials/css.html' %}
-</head>
-<body>
-<main>
-    {% include 'partials/nav-main.htm' %}
+{% block main_content %}
+
     {% include 'partials/shared/header.html' with header_subtitle="Meet the team" %}
     {% include 'partials/shared/image_banner.html' with image_url='img/team/2016_calatrava_la_vieja_team.jpg' %}
     {% include 'partials/team/scientific_board.html' %}
@@ -33,9 +18,5 @@
     {% include 'partials/team/ma.html' %}
     {% include 'partials/team/michele.html' %}
     {% include 'partials/team/vincent.html' %}
-    {% include 'partials/footer.html' %}
-    {% include 'partials/link_to_top.html' %}
-    {% include 'partials/javascript.html' %}
-</main>
-</body>
-</html>
+
+{% endblock main_content %}
