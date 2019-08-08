@@ -1,32 +1,20 @@
-{% extends "base-front.htm" %}
+{% extends "partials/portfolio-tiles/portfolio-base.htm" %}
 {% load i18n %}
 {% load staticfiles %}
 
 {% block title %} {% trans "Projects" %} {% endblock title %}
 
-{% block main_content %}
+{% block header %}
+  {% with header_title=_("Projects") %}
+    {{ block.super }}
+  {% endwith %}
+{% endblock header %}
 
-<div class="clearfix">
-    {% include "partials/sites/mininav.html" %}
-
-    <!-- Cube Portfolio Blocks - Content -->
-    <div class="cbp" data-controls="#filterControls" data-animation="quicksand" data-x-gap="0" data-y-gap="0"
-        data-media-queries='[
-                    {"width": 1500, "cols": 6},
-                    {"width": 1100, "cols": 6},
-                    {"width": 800, "cols": 4},
-                    {"width": 480, "cols": 2},
-                    {"width": 300, "cols": 2},
-                    {"width": 0, "cols": 1}
-                   ]'>
-
-        {% for project in projects %}
+{% block portfolio_tiles %}
+    {% for project in projects %}
         {% include "partials/sites/project.html" with project=project %}
-        {% endfor %}
+    {% endfor %}
+{% endblock portfolio_tiles %}
 
-    </div>
-    <!-- End Cube Portfolio Blocks - Content -->
-</div>
-<!-- End Cube Portfolio Blocks -->
-</div>
-{% endblock main_content %}
+
+
