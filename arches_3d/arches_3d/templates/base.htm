@@ -55,14 +55,15 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
     {% endblock loading_mask %}
     
     {% block body %}
-        {% include 'partials/javascript.html' %}
+        
     {% endblock body %}
 </body>
 
 {% block javascript %}
 
     {% compress js %}
-    <script src="{{ STATIC_URL }}packages/requirejs/require.js"></script>
+        {% include 'partials/javascript.html' %}
+        <script src="{{ STATIC_URL }}packages/requirejs/require.js"></script>
     {% endcompress %}
 
     {% block pre_require_js %}
