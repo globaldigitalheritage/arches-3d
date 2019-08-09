@@ -132,7 +132,7 @@
     $.HSCore.components.HSCubeportfolio.init('.cbp');
   });
 
-  $(window).on('load', function () {
+  $(document).on('ready', function () {
     // initialization of header
     $.HSCore.components.HSHeader.init($('#js-header'));
     $.HSCore.helpers.HSHamburgers.init('.hamburger');
