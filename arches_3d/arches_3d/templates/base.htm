@@ -40,8 +40,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
 
     {% block css %}
+        {% include 'partials/css/navbar-css.htm' %}
         {% compress css %}
-        {% include 'partials/css.html' %}
         <link href="{% static 'css/arches.css' %}" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/nav.css' %}">
         {% endcompress %}
@@ -62,7 +62,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 {% block javascript %}
 
     {% compress js %}
-        {% include 'partials/javascript.html' %}
+        {% include "partials/javascript/common-javascript.htm" %}
+        {% include "partials/javascript/nav-javascript.htm" %}
+    {% endcompress %}
+
+    {% compress js %}
         <script src="{{ STATIC_URL }}packages/requirejs/require.js"></script>
     {% endcompress %}
 

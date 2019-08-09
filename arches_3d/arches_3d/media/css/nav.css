@@ -13,6 +13,7 @@
 .navbar {
     padding: 0px !important;
     margin-bottom: 0px;
+    display: flex;
 }
 
 .nav-main-container {
@@ -43,6 +44,13 @@
     float: left;
 }
 
+.nav-integrated-container {
+    width: 1140px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 0px;
+}
+
 .nav-integrated-container .navbar-logo {
     width: 25px;
     height: 25px
@@ -50,6 +58,7 @@
 
 .nav-integrated-container .navbar-brand {
     font-size: 1.25rem;
+    display: flex;
 }
 
 .g-py-10 {
@@ -61,9 +70,15 @@
     padding-top: 0px !important;
 }
 
+.navbar-nav {
+    list-style: none;
+}
+
 .nav-link {
     padding-top: 0px !important;
     padding-bottom: 0px !important;
+    padding-left: 10px;
+    padding-right: 10px;
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -75,6 +90,7 @@
 
 #js-header {
     border-bottom: 1px solid #ddd;
+    text-align: left;
 }
 
 @media screen and (min-width: 993px) {

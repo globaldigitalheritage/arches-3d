@@ -27,11 +27,14 @@
 <body>
     <main>
         {% include 'partials/nav/nav-main.htm' %}
+        
         {% block main_content %}
         {% endblock main_content %}
+
         {% include 'partials/footer.html' %}
         {% include 'partials/link_to_top.html' %}
         {% include 'partials/javascript.html' %}
+
         {% block js %}
         {% endblock %}
     </main>
