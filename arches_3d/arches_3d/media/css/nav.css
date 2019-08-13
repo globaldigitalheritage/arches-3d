@@ -20,7 +20,7 @@
     width: 100%;
 }
 
-.navbar-brand {
+.container > .navbar-brand {
     width: 240px;
     float: left;
     height: auto;
@@ -56,7 +56,7 @@
     height: 25px
 }
 
-.nav-integrated-container .navbar-brand {
+.nav-integrated-container > .container > .navbar-brand {
     font-size: 1.25rem;
     display: flex;
 }
