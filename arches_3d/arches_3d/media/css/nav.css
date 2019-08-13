@@ -16,10 +16,6 @@
     display: flex;
 }
 
-.nav-main-container {
-    width: 100%;
-}
-
 .container > .navbar-brand {
     width: 240px;
     float: left;
@@ -36,12 +32,16 @@
     z-index: 1;
 }
 
-.hamburger {
-    padding-top: 5px;
-}
-
 .navbar-collapse {
     float: left;
+}
+
+.nav-main-container {
+    width: 100%;
+}
+
+.nav-main-container .hamburger {
+    padding-top: 15px;
 }
 
 .nav-integrated-container {
@@ -59,6 +59,10 @@
 .nav-integrated-container > .container > .navbar-brand {
     font-size: 1.25rem;
     display: flex;
+}
+
+.nav-integrated-container .hamburger {
+    padding-top: 5px;
 }
 
 .g-py-10 {
@@ -128,7 +132,14 @@
     }
 }
 
-/* Integrated nav bar in Arches */
+/* Main nav bar: Small screens */
+@media screen and (max-width: 992px) {
+    .nav-main-container .hamburger {
+        padding-top: 25px;
+    }
+}
+
+/* Integrated nav bar in Arches: Small screens */
 @media (max-width: 992px) {
     .nav-integrated-container .navbar-header {
         float: none;
@@ -140,6 +151,7 @@
 
     .nav-integrated-container .navbar-toggle {
         display: block;
+        margin-right: 0px;
     }
 
     .nav-integrated-container .navbar-collapse {
