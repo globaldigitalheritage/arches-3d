@@ -1,6 +1,5 @@
-{% extends "partials/portfolio-tiles/portfolio-base.htm" %}
+{% extends "partials/overview-pages/overview-base.htm" %}
 {% load i18n %}
-{% load staticfiles %}
 
 {% block title %} {% trans "Heritage Sites" %} {% endblock title %}
 
@@ -12,7 +11,7 @@
 
 {% block portfolio_tiles %}
   {% for site in sites %}
-    {% include "partials/sites/site.html" with site=site %}
+    {% include "partials/overview-pages/site.html" with site=site %}
   {% endfor %}
 {% endblock portfolio_tiles %}
 

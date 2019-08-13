@@ -1,6 +1,5 @@
-{% extends "partials/portfolio-tiles/portfolio-base.htm" %}
+{% extends "partials/overview-pages/overview-base.htm" %}
 {% load i18n %}
-{% load staticfiles %}
 
 {% block title %} {% trans "Projects" %} {% endblock title %}
 
@@ -12,7 +11,7 @@
 
 {% block portfolio_tiles %}
     {% for project in projects %}
-        {% include "partials/sites/project.html" with project=project %}
+        {% include "partials/overview-pages/project.html" with project=project %}
     {% endfor %}
 {% endblock portfolio_tiles %}
 
