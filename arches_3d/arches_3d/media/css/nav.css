@@ -93,6 +93,15 @@
     text-align: left;
 }
 
+/* Arches left menu bar */
+.anonymous-wrapper #content-container {
+    padding-left: 0px !important;
+}
+
+.anonymous-wrapper .nav-integrated {
+    margin-left: 0px;
+}
+
 @media screen and (min-width: 993px) {
 
     .nav-container .container {
