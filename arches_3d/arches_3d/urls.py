@@ -4,12 +4,13 @@ from django.conf.urls.static import static
 from arches_3d.views import brochure
 
 
-from arches_3d.views import projects, heritage_sites, meta_data
+from arches_3d.views import projects, heritage_sites, three_d_models, meta_data
 
 urlpatterns = [
     url(r'^', include('arches.urls')),
     url(r'^projects$', projects.ProjectsView.as_view(), name="projects"),
     url(r'^sites$', heritage_sites.HeritageSitesView.as_view(), name="sites"),
+    url(r'^3d-models$', three_d_models.ThreeDModelsView.as_view(), name="three_d_models"),
     url(r'^node_values$', meta_data.get_node_values, name="node_values"),
     url(r'^team/', brochure.team, name='team'),
     url(r'^equipment/', brochure.equipment, name='equipment'),

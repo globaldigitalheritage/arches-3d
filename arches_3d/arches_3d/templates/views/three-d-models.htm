@@ -1,0 +1,19 @@
+{% extends "partials/overview-pages/overview-base.htm" %}
+{% load i18n %}
+
+{% block title %} {% trans "3D Models" %} {% endblock title %}
+
+{% block header %}
+  {% with header_title=_("3D Models") %}
+    {{ block.super }}
+  {% endwith %}
+{% endblock header %}
+
+{% block portfolio_tiles %}
+    {% for three_d_model in three_d_models %}
+        {% include "partials/overview-pages/three-d-model.htm" with three_d_model=three_d_model %}
+    {% endfor %}
+{% endblock portfolio_tiles %}
+
+
+
