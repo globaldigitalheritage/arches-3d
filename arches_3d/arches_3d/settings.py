@@ -36,10 +36,6 @@ IMAGE_VERSION = get_optional_env_variable('IMAGE_VERSION') or __version__
 
 MODE = get_env_variable('DJANGO_MODE')  # options are either "PROD" or "DEV"
 DEBUG = ast.literal_eval(get_env_variable('DJANGO_DEBUG'))
-if get_optional_env_variable('DJANGO_REMOTE_DEBUG'):
-    REMOTE_DEBUG = ast.literal_eval(get_optional_env_variable('DJANGO_REMOTE_DEBUG'))
-else:
-    REMOTE_DEBUG = False
 
 APP_ROOT = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 STATICFILES_DIRS = (os.path.join(APP_ROOT, 'media'),) + STATICFILES_DIRS
