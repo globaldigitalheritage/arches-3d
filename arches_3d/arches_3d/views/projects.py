@@ -15,7 +15,7 @@ class ProjectsView(BaseManagerView):
 
         for project in projects:
 
-            tiles = Tile.objects.filter(resourceinstance=project).order_by('sortorder')
+            tiles = Tile.objects.filter(resourceinstance=project)
 
             for tile in tiles:
                 if str(tile.nodegroup_id) == 'fb0c163e-d138-11e8-814d-0242ac1a0004':
