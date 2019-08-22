@@ -18,30 +18,29 @@ class ThreeDModelsView(BaseManagerView):
 
     def __init__(self):
 
+        self.three_d_hop_graph_id = '36bcaff4-b82f-11e8-8598-0242ac120004'
+        self.sketchfab_graph_id = '6ba5a68c-f58b-11e8-a354-0242ac120004'
+        
         self.graph_types = {
-            '36bcaff4-b82f-11e8-8598-0242ac120004': {
-                'graph_type_name': 'three-d-hop',
-                'display_name': '3D HOP'
+            self.three_d_hop_graph_id: {
+                'name': 'three-d-hop',
+                'display-name': '3D HOP',
+                'images-node-group-id': '4b9b3314-d12f-11e8-85df-0242ac1a0004',
+                'thumbnail-node-id': '4b9b3c7e-d12f-11e8-85df-0242ac1a0004'
             },
-            '6ba5a68c-f58b-11e8-a354-0242ac120004': {
-                'graph_type_name': 'sketchfab',
-                'display_name': 'Sketchfab'
+            self.sketchfab_graph_id: {
+                'name': 'sketchfab',
+                'display-name': 'Sketchfab',
+                'images-node-group-id': '6ba5aa06-f58b-11e8-a354-0242ac120004',
+                'thumbnail-node-id': '6ba5cea0-f58b-11e8-a354-0242ac120004'
             }
         }
 
-        self.images_nodegroup_ids = {
-            'three-d-hop': '4b9b3314-d12f-11e8-85df-0242ac1a0004',
-            'sketchfab': '6ba5aa06-f58b-11e8-a354-0242ac120004'
-        }
-
-        self.thumbnail_node_ids = {
-            'three-d-hop': '4b9b3c7e-d12f-11e8-85df-0242ac1a0004',
-            'sketchfab': '6ba5cea0-f58b-11e8-a354-0242ac120004'
-        }
-
     def get(self, request):
-        three_d_models = Resource.objects.filter(
-            graph_id='36bcaff4-b82f-11e8-8598-0242ac120004') | Resource.objects.filter(graph_id='6ba5a68c-f58b-11e8-a354-0242ac120004')
+        
+        three_d_models = \
+                Resource.objects.filter(graph_id=self.three_d_hop_graph_id) | \
+                Resource.objects.filter(graph_id=self.sketchfab_graph_id)
 
         for three_d_model in three_d_models:
 
@@ -49,17 +48,12 @@ class ThreeDModelsView(BaseManagerView):
                 graph_type = self.graph_types[str(three_d_model.graph_id)]
             except IndexError:
                 logger.exception("View '{view_name}' not configured properly. Could not find graph type with id '{graph_id}'"
-                                 .format(
-                                     view_name=self.__class__.__name__,
-                                     graph_id=str(three_d_model.graph_id)))
+                                 .format(view_name=self.__class__.__name__,
+                                         graph_id=str(three_d_model.graph_id)))
                 continue
 
-            graph_type_name = graph_type['graph_type_name']
-            nodegroup_id = self.images_nodegroup_ids[graph_type_name] or None
-            thumbnail_node_id = self.thumbnail_node_ids[graph_type_name] or None
-
-            if not nodegroup_id or not thumbnail_node_id:
-                continue
+            nodegroup_id = graph_type['images-node-group-id']
+            thumbnail_node_id = graph_type['thumbnail-node-id']
 
             images_tile = self.get_images_tile(three_d_model, nodegroup_id)
             if not images_tile:
@@ -70,13 +64,13 @@ class ThreeDModelsView(BaseManagerView):
                 continue
 
             three_d_model.thumbnail_url = thumbnail_url
-            three_d_model.css_safe_type = graph_type['graph_type_name']
-            three_d_model.type = graph_type['display_name']
+            three_d_model.css_safe_type = graph_type['name']
+            three_d_model.type = graph_type['display-name']
 
         return render(request, 'views/three-d-models.htm', {'three_d_models': three_d_models})
 
-    def get_images_tile(self, three_d_model, nodegroup_id):
-        tiles = Tile.objects.filter(resourceinstance=three_d_model)
+    def get_images_tile(self, resource_instance, nodegroup_id):
+        tiles = Tile.objects.filter(resourceinstance=resource_instance)
         try:
             return tiles.get(nodegroup_id=nodegroup_id)
         except Tile.DoesNotExist:
