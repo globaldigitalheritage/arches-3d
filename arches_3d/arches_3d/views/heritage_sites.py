@@ -18,8 +18,10 @@ class HeritageSitesView(BaseManagerView):
         site_viewmodels = []
 
         for site in sites:
+
             site_viewmodel = PortfolioItemViewModel()
             tiles = Tile.objects.filter(resourceinstance=site)
+
             for tile in tiles:
                 if str(tile.nodegroup_id) == 'a13a9486-d134-11e8-a039-0242ac1a0004':
                     if len(tile.data['a13a9cc4-d134-11e8-a039-0242ac1a0004']) > 0:
@@ -27,7 +29,7 @@ class HeritageSitesView(BaseManagerView):
 
                 elif str(tile.nodegroup_id) == '709e4cf8-b12e-11e8-81d7-0242ac140004':
                     site_viewmodel.category_display_name = models.Value.objects \
-                                        .get(pk=tile.data['709e5d74-b12e-11e8-81d7-0242ac140004']).value
+                        .get(pk=tile.data['709e5d74-b12e-11e8-81d7-0242ac140004']).value
 
             if site_viewmodel.category_display_name:
                 site_viewmodel.category = site_viewmodel.category_display_name.replace(' ','-')

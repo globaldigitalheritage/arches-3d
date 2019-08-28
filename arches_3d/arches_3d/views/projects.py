@@ -8,27 +8,40 @@ from arches.app.models.graph import Graph
 from arches.app.models.tile import Tile
 from arches.app.utils.betterJSONSerializer import JSONSerializer
 
+from arches_3d.models.viewmodels.portfolio_item import PortfolioItemViewModel
+
+
 class ProjectsView(BaseManagerView):
 
     def get(self, request):
         projects = Resource.objects.filter(graph_id='243f8689-b8f6-11e6-84a5-026d961c88e6')
+        project_viewmodels = []
 
         for project in projects:
 
+            project_viewmodel = PortfolioItemViewModel()
             tiles = Tile.objects.filter(resourceinstance=project)
 
             for tile in tiles:
                 if str(tile.nodegroup_id) == 'fb0c163e-d138-11e8-814d-0242ac1a0004':
                     if len(tile.data['fb0c1e72-d138-11e8-814d-0242ac1a0004']) > 0:
-                        project.thumbnail_url = tile.data['fb0c1e72-d138-11e8-814d-0242ac1a0004'][0]['url']
+                        project_viewmodel.thumbnail_url = tile.data['fb0c1e72-d138-11e8-814d-0242ac1a0004'][0]['url']
 
                 elif str(tile.nodegroup_id) == '358f3142-b113-11e8-8513-0242ac140005':
-                    project.country = models.Value.objects.get(pk=tile.data['358f49de-b113-11e8-8513-0242ac140005']).value
+                    project_viewmodel.category_display_name = models.Value.objects \
+                        .get(pk=tile.data['358f49de-b113-11e8-8513-0242ac140005']).value
 
-            if hasattr(project, 'country'):
-                project.css_safe_country = project.country.replace(' ','-')
+            if project_viewmodel.category_display_name:
+                project_viewmodel.category = project_viewmodel.category_display_name.replace(' ','-')
             else: 
-                project.css_safe_country = 'other'
-                project.country = 'Other'
+                project_viewmodel.category = 'other'
+                project_viewmodel.category_display_name = 'Other'
 
-        return render(request, 'views/projects.htm', { 'projects': projects }) 
+            project_viewmodel.display_name = project.displayname
+            project_viewmodel.resource_instance_id = project.resourceinstanceid
+
+            project_viewmodels.append(project_viewmodel)
+ 
+        project_viewmodels.sort(key=lambda site: site.category)
+
+        return render(request, 'views/projects.htm', {'projects': project_viewmodels})

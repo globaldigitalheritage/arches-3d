@@ -10,9 +10,9 @@
 {% endblock header %}
 
 {% block portfolio_tiles %}
-    {% for project in projects %}
-        {% include "partials/overview-pages/project.htm" with project=project %}
-    {% endfor %}
+  {% for project in projects %}
+    {% include "partials/overview-pages/portfolio-item.htm" with portfolio_item=project %}
+  {% endfor %}
 {% endblock portfolio_tiles %}
 
 
