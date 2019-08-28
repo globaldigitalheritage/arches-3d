@@ -9,8 +9,14 @@
   {% endwith %}
 {% endblock header %}
 
+{% block mini_nav %}
+  {% with categories=projects.categories %}
+    {{block.super}}
+  {% endwith %}
+{% endblock mini_nav %}
+
 {% block portfolio_tiles %}
-  {% for project in projects %}
+  {% for project in projects.items %}
     {% include "partials/overview-pages/portfolio-item.htm" with portfolio_item=project %}
   {% endfor %}
 {% endblock portfolio_tiles %}

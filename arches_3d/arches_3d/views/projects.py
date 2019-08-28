@@ -9,13 +9,14 @@ from arches.app.models.tile import Tile
 from arches.app.utils.betterJSONSerializer import JSONSerializer
 
 from arches_3d.models.viewmodels.portfolio_item import PortfolioItemViewModel
+from arches_3d.models.viewmodels.portfolio_items import PortfolioItemsViewModel
 
 
 class ProjectsView(BaseManagerView):
 
     def get(self, request):
         projects = Resource.objects.filter(graph_id='243f8689-b8f6-11e6-84a5-026d961c88e6')
-        project_viewmodels = []
+        project_viewmodels = PortfolioItemsViewModel()
 
         for project in projects:
 
@@ -40,8 +41,8 @@ class ProjectsView(BaseManagerView):
             project_viewmodel.display_name = project.displayname
             project_viewmodel.resource_instance_id = project.resourceinstanceid
 
-            project_viewmodels.append(project_viewmodel)
+            project_viewmodels.items.append(project_viewmodel)
  
-        project_viewmodels.sort(key=lambda site: site.category)
+        project_viewmodels.items.sort(key=lambda item: item.category)
 
         return render(request, 'views/projects.htm', {'projects': project_viewmodels})

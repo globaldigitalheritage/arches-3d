@@ -13,6 +13,7 @@ import logging
 logger = logging.getLogger(__name__)
 
 from arches_3d.models.viewmodels.portfolio_item import PortfolioItemViewModel
+from arches_3d.models.viewmodels.portfolio_items import PortfolioItemsViewModel
 
 
 class ThreeDModelsView(BaseManagerView):
@@ -43,7 +44,7 @@ class ThreeDModelsView(BaseManagerView):
                 Resource.objects.filter(graph_id=self.three_d_hop_graph_id) | \
                 Resource.objects.filter(graph_id=self.sketchfab_graph_id)
         
-        three_d_viewmodels = []
+        three_d_viewmodels = PortfolioItemsViewModel()
 
         for three_d_model in three_d_models:
 
@@ -57,14 +58,7 @@ class ThreeDModelsView(BaseManagerView):
 
             three_d_viewmodel = PortfolioItemViewModel()
 
-            nodegroup_id = graph_type['images-node-group-id']
-            thumbnail_node_id = graph_type['thumbnail-node-id']
-
-            images_tile = self.get_images_tile(three_d_model, nodegroup_id)
-            if not images_tile:
-                continue
-
-            thumbnail_url = self.get_thumbnail_url(images_tile, thumbnail_node_id)
+            thumbnail_url = self.get_thumbnail_or_continue(graph_type, three_d_model)
             if not thumbnail_url:
                 continue
 
@@ -74,11 +68,22 @@ class ThreeDModelsView(BaseManagerView):
             three_d_viewmodel.display_name = three_d_model.displayname
             three_d_viewmodel.resource_instance_id = three_d_model.resourceinstanceid
 
-            three_d_viewmodels.append(three_d_viewmodel)
+            three_d_viewmodels.items.append(three_d_viewmodel)
 
-        three_d_viewmodels.sort(key=lambda site: site.category)
+        three_d_viewmodels.items.sort(key=lambda item: item.category)
 
         return render(request, 'views/three-d-models.htm', {'three_d_models': three_d_viewmodels})
+
+    def get_thumbnail_or_continue(self, graph_type, three_d_model):
+        nodegroup_id = graph_type['images-node-group-id']
+        thumbnail_node_id = graph_type['thumbnail-node-id']
+
+        images_tile = self.get_images_tile(three_d_model, nodegroup_id)
+        if not images_tile:
+            return False
+
+        thumbnail_url = self.get_thumbnail_url(images_tile, thumbnail_node_id)
+        return thumbnail_url or False
 
     def get_images_tile(self, resource_instance, nodegroup_id):
         tiles = Tile.objects.filter(resourceinstance=resource_instance)

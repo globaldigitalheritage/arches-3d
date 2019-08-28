@@ -9,8 +9,14 @@
   {% endwith %}
 {% endblock header %}
 
+{% block mini_nav %}
+  {% with categories=three_d_models.categories %}
+    {{block.super}}
+  {% endwith %}
+{% endblock mini_nav %}
+
 {% block portfolio_tiles %}
-  {% for three_d_model in three_d_models %}
+  {% for three_d_model in three_d_models.items %}
     {% include "partials/overview-pages/portfolio-item.htm" with portfolio_item=three_d_model %}
   {% endfor %}
 {% endblock portfolio_tiles %}

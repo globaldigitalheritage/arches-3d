@@ -10,12 +10,13 @@ from arches.app.models.tile import Tile
 from arches.app.utils.betterJSONSerializer import JSONSerializer
 
 from arches_3d.models.viewmodels.portfolio_item import PortfolioItemViewModel
+from arches_3d.models.viewmodels.portfolio_items import PortfolioItemsViewModel
 
 class HeritageSitesView(BaseManagerView):
 
     def get(self, request):
         sites = Resource.objects.filter(graph_id='fad0563b-b8f8-11e6-84a5-026d961c88e6')
-        site_viewmodels = []
+        site_viewmodels = PortfolioItemsViewModel()
 
         for site in sites:
 
@@ -40,8 +41,8 @@ class HeritageSitesView(BaseManagerView):
             site_viewmodel.display_name = site.displayname
             site_viewmodel.resource_instance_id = site.resourceinstanceid
 
-            site_viewmodels.append(site_viewmodel)
+            site_viewmodels.items.append(site_viewmodel)
  
-        site_viewmodels.sort(key=lambda site: site.category)
+        site_viewmodels.items.sort(key=lambda item: item.category)
 
         return render(request, 'views/heritage-sites.htm', { 'sites': site_viewmodels })
