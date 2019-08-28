@@ -10,8 +10,9 @@ from arches.app.models.tile import Tile
 from arches.app.utils.betterJSONSerializer import JSONSerializer
 
 import logging
-
 logger = logging.getLogger(__name__)
+
+from arches_3d.models.viewmodels.portfolio_item import PortfolioItemViewModel
 
 
 class ThreeDModelsView(BaseManagerView):
@@ -41,6 +42,8 @@ class ThreeDModelsView(BaseManagerView):
         three_d_models = \
                 Resource.objects.filter(graph_id=self.three_d_hop_graph_id) | \
                 Resource.objects.filter(graph_id=self.sketchfab_graph_id)
+        
+        three_d_viewmodels = []
 
         for three_d_model in three_d_models:
 
@@ -51,6 +54,8 @@ class ThreeDModelsView(BaseManagerView):
                                  .format(view_name=self.__class__.__name__,
                                          graph_id=str(three_d_model.graph_id)))
                 continue
+
+            three_d_viewmodel = PortfolioItemViewModel()
 
             nodegroup_id = graph_type['images-node-group-id']
             thumbnail_node_id = graph_type['thumbnail-node-id']
@@ -63,11 +68,17 @@ class ThreeDModelsView(BaseManagerView):
             if not thumbnail_url:
                 continue
 
-            three_d_model.thumbnail_url = thumbnail_url
-            three_d_model.css_safe_type = graph_type['name']
-            three_d_model.type = graph_type['display-name']
+            three_d_viewmodel.thumbnail_url = thumbnail_url
+            three_d_viewmodel.category = graph_type['name']
+            three_d_viewmodel.category_display_name = graph_type['display-name']
+            three_d_viewmodel.display_name = three_d_model.displayname
+            three_d_viewmodel.resource_instance_id = three_d_model.resourceinstanceid
 
-        return render(request, 'views/three-d-models.htm', {'three_d_models': three_d_models})
+            three_d_viewmodels.append(three_d_viewmodel)
+
+        three_d_viewmodels.sort(key=lambda site: site.category)
+
+        return render(request, 'views/three-d-models.htm', {'three_d_models': three_d_viewmodels})
 
     def get_images_tile(self, resource_instance, nodegroup_id):
         tiles = Tile.objects.filter(resourceinstance=resource_instance)

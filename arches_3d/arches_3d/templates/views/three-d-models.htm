@@ -10,9 +10,9 @@
 {% endblock header %}
 
 {% block portfolio_tiles %}
-    {% for three_d_model in three_d_models %}
-        {% include "partials/overview-pages/three-d-model.htm" with three_d_model=three_d_model %}
-    {% endfor %}
+  {% for three_d_model in three_d_models %}
+    {% include "partials/overview-pages/portfolio-item.htm" with portfolio_item=three_d_model %}
+  {% endfor %}
 {% endblock portfolio_tiles %}
 
 
