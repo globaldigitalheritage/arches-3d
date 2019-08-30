@@ -76,10 +76,4 @@ class ThreeDModelsView(BaseView):
     def get_thumbnail_or_continue(self, graph_type, three_d_model):
         images_nodegroup_id = graph_type['images-nodegroup-id']
         thumbnail_node_id = graph_type['thumbnail-node-id']
-
-        images_tile = self.get_nodegroup_from_resource_instance(three_d_model, images_nodegroup_id)
-        if not images_tile:
-            return False
-
-        thumbnail_url = self.get_thumbnail_url(images_tile, thumbnail_node_id)
-        return thumbnail_url or False
+        return self.get_thumbnail_url_from_images(three_d_model, images_nodegroup_id, thumbnail_node_id)
