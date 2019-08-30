@@ -1,22 +1,21 @@
 from collections import defaultdict
 from django.views.generic import View
 from django.shortcuts import render
-from arches.app.views.base import BaseManagerView
 from arches.app.models import models
 from arches.app.models.resource import Resource
 from arches.app.models.card import Card
 from arches.app.models.graph import Graph
-from arches.app.models.tile import Tile
 from arches.app.utils.betterJSONSerializer import JSONSerializer
 
 import logging
 logger = logging.getLogger(__name__)
 
+from base_view import BaseView
 from arches_3d.models.viewmodels.portfolio_item import PortfolioItemViewModel
 from arches_3d.models.viewmodels.portfolio_items import PortfolioItemsViewModel
 
 
-class ThreeDModelsView(BaseManagerView):
+class ThreeDModelsView(BaseView):
 
     def __init__(self):
 
@@ -75,27 +74,12 @@ class ThreeDModelsView(BaseManagerView):
         return render(request, 'views/three-d-models.htm', {'three_d_models': three_d_viewmodels})
 
     def get_thumbnail_or_continue(self, graph_type, three_d_model):
-        nodegroup_id = graph_type['images-nodegroup-id']
+        images_nodegroup_id = graph_type['images-nodegroup-id']
         thumbnail_node_id = graph_type['thumbnail-node-id']
 
-        images_tile = self.get_images_tile(three_d_model, nodegroup_id)
+        images_tile = self.get_nodegroup_from_resource_instance(three_d_model, images_nodegroup_id)
         if not images_tile:
             return False
 
         thumbnail_url = self.get_thumbnail_url(images_tile, thumbnail_node_id)
         return thumbnail_url or False
-
-    def get_images_tile(self, resource_instance, nodegroup_id):
-        tiles = Tile.objects.filter(resourceinstance=resource_instance)
-        try:
-            return tiles.get(nodegroup_id=nodegroup_id)
-        except Tile.DoesNotExist:
-            None
-
-    def get_thumbnail_url(self, images_tile, thumbnail_node_id):
-        thumbnail_nodes = images_tile.data.get(thumbnail_node_id)
-        if thumbnail_nodes:
-            thumbnail_node = thumbnail_nodes[0] or None
-            return thumbnail_node['url'] or None
-        else:
-            return None
