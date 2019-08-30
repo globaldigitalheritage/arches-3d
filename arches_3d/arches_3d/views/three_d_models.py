@@ -27,13 +27,13 @@ class ThreeDModelsView(BaseManagerView):
             self.three_d_hop_graph_id: {
                 'name': 'three-d-hop',
                 'display-name': '3D HOP',
-                'images-node-group-id': '4b9b3314-d12f-11e8-85df-0242ac1a0004',
+                'images-nodegroup-id': '4b9b3314-d12f-11e8-85df-0242ac1a0004',
                 'thumbnail-node-id': '4b9b3c7e-d12f-11e8-85df-0242ac1a0004'
             },
             self.sketchfab_graph_id: {
                 'name': 'sketchfab',
                 'display-name': 'Sketchfab',
-                'images-node-group-id': '6ba5aa06-f58b-11e8-a354-0242ac120004',
+                'images-nodegroup-id': '6ba5aa06-f58b-11e8-a354-0242ac120004',
                 'thumbnail-node-id': '6ba5cea0-f58b-11e8-a354-0242ac120004'
             }
         }
@@ -75,7 +75,7 @@ class ThreeDModelsView(BaseManagerView):
         return render(request, 'views/three-d-models.htm', {'three_d_models': three_d_viewmodels})
 
     def get_thumbnail_or_continue(self, graph_type, three_d_model):
-        nodegroup_id = graph_type['images-node-group-id']
+        nodegroup_id = graph_type['images-nodegroup-id']
         thumbnail_node_id = graph_type['thumbnail-node-id']
 
         images_tile = self.get_images_tile(three_d_model, nodegroup_id)
