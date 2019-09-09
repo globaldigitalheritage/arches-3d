@@ -15,8 +15,9 @@
     {% include 'partials/meta.html' %}
     <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" />
 
-    {% compress css %}
     {% include 'partials/css.html' %}
+    
+    {% compress css %}
     <link rel="stylesheet" href="{% static 'css/nav.css' %}">
     {% endcompress %}
 
