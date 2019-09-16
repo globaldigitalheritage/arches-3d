@@ -78,6 +78,7 @@ services:
         - DOMAIN_NAMES=${DOMAIN_NAMES}
         - PRODUCTION_MODE=True
         - PERSISTENT_MODE=True
+        - FORCE_DOWNLOAD=True
         - TZ=EST
       depends_on:
         - nginx
