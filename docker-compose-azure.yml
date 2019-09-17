@@ -76,9 +76,9 @@ services:
         - MODE=regular
         - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
         - DOMAIN_NAMES=${DOMAIN_NAMES}
-        - PRODUCTION_MODE=True
-        - PERSISTENT_MODE=False
-        - FORCE_DOWNLOAD=True
+        - PRODUCTION_MODE=${LETSENCRYPT_PRODUCTION_MODE}
+        - PERSISTENT_MODE=${LETSENCRYPT_PERSISTENT_MODE}
+        - FORCE_DOWNLOAD=${LETSENCRYPT_FORCE_DOWNLOAD}
         - TZ=EST
       depends_on:
         - nginx
