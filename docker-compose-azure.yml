@@ -77,7 +77,7 @@ services:
         - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL}
         - DOMAIN_NAMES=${DOMAIN_NAMES}
         - PRODUCTION_MODE=True
-        - PERSISTENT_MODE=True
+        - PERSISTENT_MODE=False
         - FORCE_DOWNLOAD=True
         - TZ=EST
       depends_on:
