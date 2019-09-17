@@ -1,0 +1,23 @@
+
+echo 'Setting environment variables...'
+
+export IMAGE_VERSION=$(image_version)
+export PGUSERNAME=$(pgusername)
+export PGPASSWORD=$(pgpassword)
+export PGHOST=$(pghost)
+export ESHOST=$(eshost)
+export DJANGO_SECRET_KEY=$(django_secret_key)
+export AZURE_ACCOUNT_NAME=$(azure_account_name)
+export AZURE_ACCOUNT_KEY=$(azure_account_key)
+export STATIC_URL=$(static_url)
+export MEDIA_URL=$(media_url)
+export DOMAIN_NAMES=$(domain_names)
+export SCRIPT_SOURCE_ALLOWED_HOSTS=$(script_source_allowed_hosts)
+export X_FRAME_ALLOWED_HOSTS=$(x_frame_allowed_hosts)
+export PUBLIC_MODE=$(public_mode)
+export LETSENCRYPT_EMAIL=$(letsencrypt_email)
+export LETSENCRYPT_PRODUCTION_MODE=$(letsencrypt_production_mode)
+export LETSENCRYPT_PERSISTENT_MODE=$(letsencrypt_persistent_mode)
+export LETSENCRYPT_FORCE_DOWNLOAD=$(letsencrypt_force_download)
+export RESTART=$(docker_restart)
+export OVERRIDE_RESOURCE_MODEL_LOCK=$(override_resource_model_lock)
