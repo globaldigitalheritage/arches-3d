@@ -95,15 +95,6 @@
               <a href="{% url 'graph' '' %}" class="nav-link g-py-7 g-px-0">{% trans "Design" %}</a>
             </li>
             {% endif %}
-            {% if user.username == 'anonymous' %}
-            <li class="nav-item g-mx-10--lg g-mx-15--xl page-scroll">
-              <a id="auth-link" href="{% url 'auth' %}?next={% url 'home' %}{% if user.username != 'anonymous' %}&logout=true{% endif %}"
-                class="nav-link g-py-7 g-px-0">
-                {% trans "Login" %}
-              </a>
-            </li>
-            {% endif %}
-
 
             {% if user.username != 'anonymous' %}
             <li class="nav-item g-mx-10--lg g-mx-15--xl page-scroll">
