@@ -117,11 +117,13 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
                                 <!-- Login -->
                                 {% if nav.login %}
-                                <a href="{% url 'auth' %}?next={{ request.get_full_path }}{% if user.username != 'anonymous' %}&logout=true{% endif %}" class="ep-tools ep-tools-login">
-                                    <div class="" data-placement="bottom" data-toggle="tooltip" data-original-title="{% if user.username != 'anonymous' %}Logout{% else %}Login{% endif %}">
-                                        <h5 class="hidden-xs">{% trans "Welcome" %}, {{ user.first_name|default:user.username }}</h5>
-                                    </div>
-                                </a>
+                                    {% if user.username != 'anonymous' %}
+                                    <a href="{% url 'auth' %}?next={{ request.get_full_path }}{% if user.username != 'anonymous' %}&logout=true{% endif %}" class="ep-tools ep-tools-login">
+                                        <div class="" data-placement="bottom" data-toggle="tooltip" data-original-title="{% if user.username != 'anonymous' %}Logout{% else %}Login{% endif %}">
+                                            <h5 class="hidden-xs">{% trans "Welcome" %}, {{ user.first_name|default:user.username }}</h5>
+                                        </div>
+                                    </a>
+                                    {% endif %}
                                 {% endif %}
 
                                 <!-- Search Bar -->
