@@ -65,7 +65,7 @@ services:
         - arches
 
     letsencrypt:
-      image: vmeijer/letsencrypt-client:1.2.0.1
+      image: vmeijer/letsencrypt-client:2.0.0.0
       volumes:
         - letsencrypt-acme-challenge:/var/www
         - letsencrypt:/etc/letsencrypt
