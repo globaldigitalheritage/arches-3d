@@ -1,4 +1,6 @@
-django-storages-azure==1.6.8
+django-storages==1.7.1
+azure-storage-blob==2.1.0
+azure-common==1.1.25
 ptvsd==4.3.2
 pathos==0.2.2.1
 chardet==3.0.4
